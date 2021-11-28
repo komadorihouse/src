@@ -1,0 +1,29 @@
+<%= link_to "商品の選択", orders_path %> > <%= @user.facility_name %>
+<h1><%= @user.facility_name %></h1>
+
+<div id="user-mer-info">
+    出品中の商品一覧
+</div>
+<% @user.merchandises.each do |mer| %>
+    <%= link_to order_path(mer.id) do %>
+        <div class="user-mer-block">
+            <div class="user-mer">
+                <%= mer.merchandise_name %>
+            </div>
+            <div class="user-mer">
+                <%= mer.price %>
+            </div>
+            <div class="user-mer">
+                <%= mer.limit %>
+            </div>
+            <div class="user-mer">
+                <%= mer.quantity %>
+            </div>
+            <div class="user-mer">
+                <%= mer.deadline %>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+<div>
+    <%= link_to "もどる", orders_path %>

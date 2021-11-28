@@ -1,0 +1,39 @@
+<%= link_to "商品の選択", orders_path %> > <%= link_to @merchandise.user.facility_name, user_order_path(@merchandise.user.id) %> > <%= link_to @merchandise.merchandise_name ,order_path(@merchandise.id)  %> > 商品注文
+<div>
+    <h2><%= @merchandise.merchandise_name %></h2>
+    <div>
+        <% if @merchandise.limit == true %>
+            数量限定商品 
+            <%= @merchandise.quantity %> 個
+        <% else %>
+            注文上限なし
+        <% end %>
+    </div>
+    <div>
+        単価<%= @merchandise.price %>円
+    </div>
+    <div>
+        <%= @merchandise.explanation %>
+    </div>
+    <div>
+        注文期限
+    </div>
+    <div>
+        <%= @merchandise.deadline.year %>年
+        <%= @merchandise.deadline.month %>月
+        <%= @merchandise.deadline.day %>日
+    </div>
+</div>
+
+<%= form_with model:@order, :url => {:action => :create} do |f| %>
+    <ul>
+        <li class="field">
+            <%= f.label :注文数 %>
+        </li>
+        <li class="field">
+            <%= f.number_field :mumber_of_orders %>
+        </li>
+    </ul>
+<% end %>
+
+

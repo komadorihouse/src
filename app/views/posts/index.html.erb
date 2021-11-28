@@ -1,0 +1,94 @@
+<div class="app-title-card">
+    <div class="app-title">Order Reception</div>
+    <div class="app-title-ja">オーダー管理システム</div>
+</div>
+
+<div class="info-card">
+    <% if user_signed_in? %>
+        <div class="user-name">
+            <%= current_user.facility_name %>
+        </div>
+        <div class="sign-in-info">
+            として サインイン中です。
+        </div>
+        <div class="action">
+            <div class="merchandise">
+                <%= link_to "商品登録",  new_post_path %>
+            </div>
+            <div class="merchandise order">
+                <%= link_to "注文",  orders_path %>
+            </div>
+            <div class="logout">
+                <%= link_to 'ログアウト',  destroy_user_session_path, method: :delete %>
+             </div>
+        </div>
+        <div class="mer-list-title">
+            現在出品中の商品一覧
+        </div>
+        <table class="mer">
+            <tr>
+                <th>
+                </th>
+                <th class="mer-column">
+                    商品名
+                </th>
+                <th class="mer-column">
+                    商品単価
+                </th>
+                <th class="mer-column">
+                    注文期限
+                </th>
+                <th class="mer-column">
+                    商品数
+                </th>
+                <th class="mer-column">
+                    注文締め切り日
+                </th>
+                <th>
+                </th>
+            </tr>
+            <% @merchandise.each do |mer| %>
+                <% if mer.user_id == current_user.id %>
+                    <tr class="mer-value-box">
+                        <td>
+                            <div class="mer-value show">
+                                <%= link_to "詳細" ,post_path(mer.id) %>
+                            </div>
+                        </td>
+                        <td class="mer-value">
+                            <%= mer.merchandise_name %>
+                        </td>
+                        <td class="mer-value">
+                            <%= mer.price %>
+                        </td>
+                        <td class="mer-value">
+                            <% if mer.limit == true %>
+                                有
+                            <% else %>
+                                無
+                            <% end %>
+                        </td>
+                        <td class="mer-value">
+                            <%= mer.quantity %>
+                        </td>
+                        <td class="mer-value">
+                            <%= mer.deadline %>
+                        </td>
+                        <td class="mer-value edit">
+                            <%= link_to "編集" ,edit_post_path(mer.id) %>
+                        </td>
+                    </tr>
+                <% end %>
+            <% end %>
+        </table>  
+    <% else %>
+        <div class="action">
+            <div class="merchandise">
+                <%= link_to "事業所登録" , new_user_registration_path %>
+            </div>
+            <div class="merchandise order">
+                <%= link_to "ログイン",  new_user_session_path %>
+            </div>
+        </div>
+    <% end %>
+</div>

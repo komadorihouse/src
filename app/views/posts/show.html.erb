@@ -1,0 +1,24 @@
+<h1>商品詳細</h1>
+
+<div>
+    <div id="show-name">
+        <%= @merchandise.merchandise_name %>
+    </div>
+    <div id="show-exp">
+        <%= @merchandise.explanation %>
+    </div>
+    <div id="show-price">
+        <%= @merchandise.price %>
+    </div>
+    <div id="show-limit">
+        <%= @merchandise.limit %>
+    </div>
+    <div id="show-qua">
+        <%= @merchandise.quantity %>
+    </div>
+    <div id="show-dead">
+        <%= @merchandise.deadline %>
+    </div>
+</div>
+<%= link_to "編集" ,edit_post_path(@merchandise.id) %>
+<%= link_to "もどる", root_path %>

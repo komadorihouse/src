@@ -1,0 +1,11 @@
+<h1>商品の選択</h1>
+    <% @users.each do |user| %>
+        <div class="user">
+            <%= link_to user_order_path(user.id) do %>
+                <%= user.facility_name %>
+            <% end %>
+        </div>
+    <% end %>
+<div id="top-btn">
+    <%= link_to "トップページ", root_path %>
+</div>

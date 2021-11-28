@@ -1,0 +1,48 @@
+<h1>商品情報編集</h1>
+<%= form_with model:@merchandise, :url => {:action => :update} do |f| %>
+
+    <div>
+        <ul>
+            <li class="field">
+                <%= f.label :商品名 %>
+            </li>
+            <li class="field">
+                <%= f.text_field :merchandise_name %>
+            </li>
+            <li class="field">
+                <%= f.label :詳細情報 %>
+            </li>
+            <li class="field">
+                <%= f.text_area :explanation %>
+            </li>
+            <li class="field">
+                <%= f.label :価格 %>
+            </li>
+            <li class="field">
+                ￥<%= f.number_field :price %>
+            </li>
+            <li class="field">
+                <%= f.label :数量限定 %>
+                <%= f.check_box :limit %>
+            </li>
+            <li class="field">
+                <%= f.label :数量 %>
+            </li>
+            <li class="field">
+                <%= f.number_field :quantity %>
+            </li>
+            </li>
+            <li class="field">
+                <%= f.label :注文締め切り日 %>
+            </li>
+            <li class="field">
+                <%= f.date_field :deadline %>
+            </li>
+            <li>
+                <%= f.submit "登録する" %>
+            </li>
+        </ul>
+    </div>
+<% end %>
+
+<%= link_to "トップページ" , root_path %>
