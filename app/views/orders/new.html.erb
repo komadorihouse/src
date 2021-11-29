@@ -40,7 +40,11 @@
             <%= f.number_field :mumber_of_orders ,id: "item-num" %>
         </li>
         合計金額
-        <li id="total-price">
+        <li id="total-field">
+            <%= f.number_field :price ,id: "orders-price-column" ,disabled: "disabled" %>円
+        </li>
+        <li class="field">
+            <%= f.submit "購入予約" %>
         </li>
     </ul>
 <% end %>
