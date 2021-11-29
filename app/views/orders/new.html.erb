@@ -19,9 +19,11 @@
         注文期限
     </div>
     <div>
-        <%= @merchandise.deadline.year %>年
-        <%= @merchandise.deadline.month %>月
-        <%= @merchandise.deadline.day %>日
+        <% if @merchandise.deadline != nil %>
+            <%= @merchandise.deadline.year %>年
+            <%= @merchandise.deadline.month %>月
+            <%= @merchandise.deadline.day %>日
+        <% end %>
     </div>
 </div>
 

@@ -9,6 +9,11 @@ class OrdersController < ApplicationController
 
     def show
         @merchandise = Merchandise.find(params[:id])
+        if  @merchandise.deadline != nil
+            @year = @merchandise.deadline.year
+            @month = @merchandise.deadline.month
+            @day = @merchandise.deadline.day
+        end
     end
 
     def new
