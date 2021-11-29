@@ -1,6 +1,10 @@
 function explanation() {
     const exp = document.querySelectorAll('.mer-explanation');
     const square = document.querySelectorAll('.show-square');
+    const itemNum = document.getElementById('item-num');
+    const numVal = itemNum.value
+    const total = document.getElementById('total-price');
+    const price = document.getElementById('price');
     var swi = 0
     square.forEach(function(e,i) {
         e.addEventListener("click", function(){
@@ -17,6 +21,10 @@ function explanation() {
                 e.style.color="#4e4e4e";
             };
         });
+    });
+
+    itemNum.addEventListener("input", function(e) {
+        total.textContent = price.textContent * itemNum.value + "円";
     });
 };
     

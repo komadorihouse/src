@@ -10,7 +10,11 @@
         <% end %>
     </div>
     <div>
-        単価<%= @merchandise.price %>円
+        単価
+        <em id="price">
+            <%= @merchandise.price %>
+        </em>
+        円
     </div>
     <div>
         <%= @merchandise.explanation %>
@@ -30,10 +34,13 @@
 <%= form_with model:@order, :url => {:action => :create} do |f| %>
     <ul>
         <li class="field">
-            <%= f.label :注文数 %>
+            <%= f.label :注文数 %>個
         </li>
         <li class="field">
-            <%= f.number_field :mumber_of_orders %>
+            <%= f.number_field :mumber_of_orders ,id: "item-num" %>
+        </li>
+        合計金額
+        <li id="total-price">
         </li>
     </ul>
 <% end %>
