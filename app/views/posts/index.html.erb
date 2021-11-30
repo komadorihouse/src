@@ -80,7 +80,19 @@
                     </tr>
                 <% end %>
             <% end %>
-        </table>  
+        </table>
+        <div id="order-card">
+            現在注文中の商品
+        </div>
+        
+        <% @order.each do |order| %>
+            <div>
+                <%= order.merchandise.merchandise_name %>
+                <%= order.mumber_of_orders %>個
+                <%= order.price %>円
+            </div>
+        <% end %>
+        
     <% else %>
         <div class="action">
             <div class="merchandise">

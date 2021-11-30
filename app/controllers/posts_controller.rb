@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     def index
         if user_signed_in?
             @merchandise = Merchandise.all
-            @order = Order.all
+            @order = Order.where(user: current_user.id)
         end
     end
 
