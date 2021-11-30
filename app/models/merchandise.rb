@@ -4,4 +4,5 @@ class Merchandise < ApplicationRecord
         validates :price
     end
     belongs_to :user
+    
 end

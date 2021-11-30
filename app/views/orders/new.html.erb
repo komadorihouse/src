@@ -34,17 +34,20 @@
 <%= form_with model:@order, :url => {:action => :create} do |f| %>
     <ul>
         <li class="field">
-            <%= f.label :注文数 %>個
+            <%= f.label :注文数 %>
         </li>
         <li class="field">
-            <%= f.number_field :mumber_of_orders ,id: "item-num" %>
+            <%= f.number_field :mumber_of_orders ,id: "item-num" , min: 1, max: 1000 %>個(1~1000)
         </li>
         合計金額
         <li id="total-field">
-            <%= f.number_field :price ,id: "orders-price-column" ,disabled: "disabled" %>円
+            <%= f.number_field :price ,id: "orders-price-column"  %>円
         </li>
         <li class="field">
             <%= f.submit "購入予約" %>
+        </li>
+        <li>
+            <%= f.number_field :merchandise_id ,value: @merchandise.id %>
         </li>
     </ul>
 <% end %>

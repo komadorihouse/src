@@ -33,6 +33,6 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.require(:order).permit(:mumber_of_orders, :price).merge(user_id: current_user.id , merchandise_id: @merchandise.id)
+        params.require(:order).permit(:mumber_of_orders, :price, :merchandise_id).merge(user_id: current_user.id)
     end
 end

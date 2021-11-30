@@ -2,6 +2,7 @@ class PostsController < ApplicationController
     def index
         if user_signed_in?
             @merchandise = Merchandise.all
+            @order = Order.all
         end
     end
 
