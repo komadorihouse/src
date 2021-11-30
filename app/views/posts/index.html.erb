@@ -81,10 +81,15 @@
                 <% end %>
             <% end %>
         </table>
-        <div id="order-card">
-            現在注文中の商品
-        </div>
-        
+        <% if @order.none? %>
+            <div id="order-card">
+                現在注文中の商品はありません
+            </div>
+        <% else %>
+            <div id="order-card">
+                現在注文中の商品
+            </div>
+        <% end %>
         <% @order.each do |order| %>
             <div>
                 <%= order.merchandise.merchandise_name %>
@@ -92,7 +97,6 @@
                 <%= order.price %>円
             </div>
         <% end %>
-        
     <% else %>
         <div class="action">
             <div class="merchandise">
